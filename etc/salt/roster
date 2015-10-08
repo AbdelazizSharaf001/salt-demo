@@ -1,0 +1,25 @@
+%YAML 1.2
+---
+demo1:
+  host: 10.9.9.11
+  user: vagrant
+  sudo: true
+  priv: /usr/share/vagrant/keys/vagrant
+
+demo2:
+  host: 10.9.9.12
+  user: vagrant
+  sudo: true
+  priv: /usr/share/vagrant/keys/vagrant
+
+demo3:
+  host: 10.9.9.13
+  user: vagrant
+  sudo: true
+  priv: /usr/share/vagrant/keys/vagrant
+
+demo4:
+  host: 10.9.9.14
+  user: vagrant
+  sudo: true
+  priv: /usr/share/vagrant/keys/vagrant
