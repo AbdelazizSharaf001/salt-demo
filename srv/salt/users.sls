@@ -1,5 +1,8 @@
-andreas:
+{% for name, user in pillar.get('users', {}).items() %}
+user-{{ name }}:
   user.present:
-    - fullname: Andreas Lutro
-    - password: $6$8plZKd6D$l8Ya4kqOLzBRhdpvhR0VWhsJiIU8cqIo4nLAEWjz0vRx68XU.SzGxYjYMLSTiUDLVk0bZTlbndHR/TwJxylMk0
+    - name: {{ name }}
+    - fullname: {{ user.fullname }}
+    - password: {{ user.password_hash }}
     - mindays: 30
+{% endfor %}
