@@ -1,13 +1,10 @@
+{% set apache = salt['grains.filter_by']({
+  'Debian': {'pkg': 'apache2', 'srv': 'apache2'},
+  'RedHat': {'pkg': 'httpd', 'srv': 'httpd'},
+}, default='Debian') %}
+
 apache:
   pkg.installed:
-  {% if grains.os_family == 'Debian' %}
-    - name: apache2
-  {% elif grains.os_family == 'RedHat' %}
-    - name: httpd
-  {% endif %}
+    - name: {{ apache.pkg }}
   service.running:
-  {% if grains.os_family == 'Debian' %}
-    - name: apache2
-  {% elif grains.os_family == 'RedHat' %}
-    - name: httpd
-  {% endif %}
+    - name: {{ apache.srv }}
